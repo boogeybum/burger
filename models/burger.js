@@ -4,17 +4,23 @@ var orm = require("../config/orm");
 var burger = {
     // select all entires in table
     selectAll: function(callBack) {
-
+        orm.selectAll("burgers", function(res) {
+            callBack(res);
+        });
     },
 
     // input into one of the entries
     insertOne: function(callBack) {
-        
+        orm.insertOne("burgers", cols, vals, function(res) {
+            callBack(res);
+        });
     },
 
     // update one of the table entries
     updateOne: function(callBack) {
-
+        orm.updateOne("burgers", objColVals, condition, function(res) {
+            callBack(res);
+        });
     }
 };
 
