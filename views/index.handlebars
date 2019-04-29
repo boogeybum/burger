@@ -1,4 +1,65 @@
+<div class="container border">
+    <img src="/assets/img/hamburguer.png" class="rounded mx-auto d-block resize" alt="Hamburger Smiley Face">
+    <h1 class="text-center">Eat-Da-Burger</h1>
+</div>
+
 <div class="container">
-    <img src="/assets/img/hamburguer.png">
-    <h1>Eat-Da-Burger</h1>
+    <div class="row">
+        <div class="col-md border">
+            <br>
+            <h3 class="text-center">To Be Devoured Burger</h3>
+            <ul>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                    <li>
+                    #
+                    {{this.id}}
+                    {{this.burger_name}}
+
+                    <form action="/{{this.id}}?_method=POST" method="POST">
+                        <input type="hidden" name="devoured" value="true">
+                        <button class="btn-primary" type="submit">Devour It!</button>
+                    </form>
+
+                    </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+            <br>
+        </div>
+        <div class="col-md border">
+            <br>
+            <h3 class="text-center">Devoured Burger</h3>
+            <ul>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                    <li>
+                    #
+                    {{this.id}}
+                    {{this.burger_name}}
+                    </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md border">
+            <br>
+            <h3 class="text-center">Add a Burger</h3>
+            <form class="create-form">
+                <div class="form-group">
+                <label for="ca" class="text-center">Type the burger you want to devour then click the Submit button.</label>
+                <input type="text" id="ca" name="burger_name">
+                </div>
+                
+                <button class="btn-primary btn-lrg btn-block" type="submit">Submit</button>
+            </form>
+            <br>
+        </div>
+    </div>
 </div>
