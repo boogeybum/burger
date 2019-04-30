@@ -18,7 +18,7 @@
 
                     <form action="/{{this.id}}?_method=POST" method="POST">
                         <input type="hidden" name="devoured" value="true">
-                        <button class="btn-primary" type="submit">Devour It!</button>
+                        <button class="btn-primary devour" type="submit">Devour It!</button>
                     </form>
 
                     </li>
@@ -53,11 +53,11 @@
             <h3 class="text-center">Add a Burger</h3>
             <form class="create-form" action="/" method="POST">
                 <div class="form-group">
-                <label for="ca" class="text-center">Type the burger you want to devour then click the Submit button.</label>
-                <input type="text" id="ca" name="burger_name">
+                <label for="burgerInput" class="text-center">Type the burger you want to devour then click the Submit button.</label>
+                <input type="text" id="burgerInput" name="burger_name">
                 </div>
                 
-                <button class="btn-primary btn-lrg btn-block" type="submit">Submit</button>
+                <button class="btn-primary btn-lrg btn-block newBurger" type="submit">Submit</button>
             </form>
             <br>
         </div>

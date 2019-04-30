@@ -20,11 +20,12 @@ router.post("/", function(req, res) {
     ], [
         req.body.burger_name
     ], function(data) {
+        res.json({ id: data.insertId });
         res.redirect("/");
     });
 });
 
-router.post("/", function(req, res) {
+router.put("/", function(req, res) {
     var burgerState = "id = " + req.params.id;
     burger.updateOne({
         devoured: true

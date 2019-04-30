@@ -10,14 +10,14 @@ var burger = {
     },
 
     // input into one of the entries
-    insertOne: function(callBack) {
+    insertOne: function(cols, vals, callBack) {
         orm.insertOne("burgers", cols, vals, function(res) {
             callBack(res);
         });
     },
 
     // update one of the table entries
-    updateOne: function(callBack) {
+    updateOne: function(objColVals, condition, callBack) {
         orm.updateOne("burgers", objColVals, condition, function(res) {
             callBack(res);
         });
