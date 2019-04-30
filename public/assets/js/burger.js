@@ -1,52 +1,38 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-    $(".newBurger").on("click", function(event) {
-    //get new user input value
-    console.log(this);
-        var newBurger = $("#burgerInput").val();
-        console.log(newBurger);
-    //add user input to database
-    //   var id = $(this).data("id");
-    //   var newSleep = $(this).data("newsleep");
-  
-    //   var newSleepState = {
-    //     sleepy: newSleep
-    //   };
-  
-    //   // Send the PUT request.
-    //   $.ajax("/api/cats/" + id, {
-    //     type: "PUT",
-    //     data: newSleepState
-    //   }).then(
-    //     function() {
-    //       console.log("changed sleep to", newSleep);
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
+    $(".devour").on("click", function(event) {
+        event.preventDefault();
+        // get the id of the item clicked
+        
+        // change the devoured field to true
+    
+        // remove item from left column
+
+        // add item to the right devoured column
     });
-  
+    
+    //Get new user input value
     $(".create-form").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+    
+        var newBurger = {
+            burger_name: $("#burgerInput").val().trim(),
+            devoured: 0
+        };
+        console.log(newBurger);
   
-      var newCat = {
-        name: $("#ca").val().trim(),
-        sleepy: $("[name=sleepy]:checked").val().trim()
-      };
-  
-      // Send the POST request.
-      $.ajax("/api/cats", {
-        type: "POST",
-        data: newCat
-      }).then(
-        function() {
-          console.log("created new cat");
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
+        // add new user value to the database
+        $.ajax("/", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function() {
+            console.log("created new burger");
+            // Reload the page to get the updated list
+            location.reload();
+            }
+        );
     });
-  
-  });
+});
   
